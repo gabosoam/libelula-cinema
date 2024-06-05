@@ -13,7 +13,7 @@ const MenuProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, []);
 
-  const onOpen = (state) => {
+  const onOpen = (state:any) => {
     setOpen(state);
     // Guardar el estado en localStorage cuando cambia
     localStorage.setItem('menuOpen', JSON.stringify(state));

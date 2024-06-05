@@ -19,7 +19,7 @@ export const getPopularMoviesFetch = async () => {
 
 
 
-export const searchMoviesFetch = async (query, page = 1, resultsPerPage = 5) => {
+export const searchMoviesFetch = async (query: string, page = 1, resultsPerPage = 5) => {
   const response = await fetch(`https://api.themoviedb.org/3${query}`, {
     headers: {
       Authorization: `Bearer ${TMDB_TOKEN}`,
@@ -35,22 +35,8 @@ export const searchMoviesFetch = async (query, page = 1, resultsPerPage = 5) => 
 };
 
 
-export const searchMoviesFetch3 = async (query, page = 1, resultsPerPage = 5) => {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}&include_adult=false`, {
-      headers: {
-        Authorization: `Bearer ${TMDB_TOKEN}`,
-      },
-    });
-  
-    if (!response.ok) {
-      throw new Error('Failed to search movies');
-    }
-  
-    const data = await response.json();
-    return data.results.slice(0, resultsPerPage); // Limitar resultados a la cantidad deseada
-  };
 
-  export const getMovieDetails = async (movieId) => {
+  export const getMovieDetails = async (movieId : string) => {
     const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}`, {
       headers: {
         Authorization: `Bearer ${TMDB_TOKEN}`,

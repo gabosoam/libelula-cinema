@@ -1,17 +1,14 @@
 import { useContext, useState } from 'react';
 import { UserCircleIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
-import { BurgerMenuContext } from '@/context/BurgerMenuContext';
 import SearchBox from './SearchBox';
 import { MenuContext } from '../context/menuContext/MenuContext';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [menuToogle, setMenuToogle] = useState(false);
   const userName = "Iniciar sesión"; // Reemplaza esto con el nombre de usuario real
 
 
-  const { open, onOpen } = useContext(MenuContext);
+  const { open, onOpen } = useContext<any>(MenuContext);
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);

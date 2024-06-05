@@ -4,14 +4,14 @@ import { MovieContext } from "../context/movieContext/MovieContext";
 
 const MovieList = () => {
 
-    const { movies, loading, error, title } = useContext(MovieContext);
+    const { movies, loading, error, title } = useContext<any>(MovieContext);
 
 
     return (
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold mb-8 text-center">{title}</h1>
             <div className=" lg:p-50">
-                {movies.map((movie, index) => (
+                {movies.map((movie: any, index: number) => (
                     <MovieCard key={index} movie={movie} />
                 ))}
             </div>

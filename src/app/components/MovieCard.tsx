@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const MovieCard = ({ movie }) => {
+interface MovieCardProps {
+  movie: any; 
+}
+
+const MovieCard = ({ movie }: MovieCardProps) => {
   return (
     <div className="flex flex-col md:flex-row justify-between items-center bg-gray-900 shadow-md rounded-md overflow-hidden p-4 mb-4">
       <div className="w-full md:w-1/4 h-96 md:h-full flex justify-center items-center">
@@ -15,7 +19,7 @@ const MovieCard = ({ movie }) => {
       </div>
       <div className="w-full md:w-3/4 p-4">
         <h2 className="text-2xl font-bold mb-4 text-white">{movie.title}</h2>
-        <p className={`text-lg text-gray-400 mb-4 ${isMobile() ? 'truncate' : ''}`}>
+        <p className={`text-lg text-gray-400 mb-4 `}>
           {movie.overview}
         </p>
         <ul className="list-none mb-4 space-y-2">

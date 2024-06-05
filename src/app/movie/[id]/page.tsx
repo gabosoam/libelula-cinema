@@ -6,7 +6,7 @@ import MovieProvider from '@/app/context/movieContext/MovieProvider';
 import MainContainer from '@/app/containers/MainContainer';
 import MovieList from '@/app/components/MovieList';
 import { getMovieDetails } from '@/lib/tmdb';
-import MovieDetail from '@/app/pages/movie/[id]';
+import MovieDetail from '@/app/components/MovieDetail';
 
 
 interface MoviePageProps {

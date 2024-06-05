@@ -1,19 +1,21 @@
 'use client'
 import Navbar from "../components/Navbar";
 import BurgerMenu from "../components/BurgerMenu";
-import { createContext, useContext, useState } from "react";
+import { FC, ReactNode, createContext, useContext, useState } from "react";
 import { MenuContext } from "../context/menuContext/MenuContext";
 
-const BurgerMenuContext = createContext();
+interface Props {
+    children?: ReactNode;
+}
 
-export default function MainContainer({ children }) {
 
-    const { open, onOpen } = useContext(MenuContext);
+ const MainContainer: FC<Props> = ({
+    children,
+}) => {
 
-    const isMobile = () => {
-        const screenWidth = window.innerWidth;
-        return screenWidth < 640;
-    };
+    const { open, onOpen } = useContext<any>(MenuContext);
+
+   
 
     return (
 
@@ -30,8 +32,8 @@ export default function MainContainer({ children }) {
                     </div>
                 }
 
-               
-                <div className={`col-span-${((!isMobile()) && open) ? '9' :'12'}`}>
+
+                <div className={`col-span-${ open ? '9' : '12'}`}>
                     {children}
                 </div>
 
@@ -47,3 +49,5 @@ export default function MainContainer({ children }) {
         </main>
     );
 }
+
+export default MainContainer

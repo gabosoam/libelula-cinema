@@ -1,8 +1,14 @@
+'use client'
 // /components/MovieDetail.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 
-const MovieDetail = ({ movie }) => {
+interface MovieDetailProps {
+  movie: any; 
+}
+
+
+const MovieDetail = ({ movie }: MovieDetailProps) => {
   return (
     <div className="bg-gray-900 text-white p-8">
       <div className="flex flex-col md:flex-row items-center md:items-start">
@@ -21,7 +27,7 @@ const MovieDetail = ({ movie }) => {
           <div className="space-y-4">
             <div>
               <span className="font-bold">Géneros: </span>
-              <span>{movie.genres.map(genre => genre.name).join(', ')}</span>
+              <span>{movie.genres.map((genre :any) => genre.name).join(', ')}</span>
             </div>
             <div>
               <span className="font-bold">Duración: </span>
@@ -41,17 +47,17 @@ const MovieDetail = ({ movie }) => {
             </div>
             <div>
               <span className="font-bold">Compañías de Producción: </span>
-              <span>{movie.production_companies.map(company => company.name).join(', ')}</span>
+              <span>{movie.production_companies.map((company:any) => company.name).join(', ')}</span>
             </div>
             <div>
               <span className="font-bold">Ingresos: </span>
               <span>${movie.revenue.toLocaleString()}</span>
             </div>
           </div>
-          <Link href="/">
-            <a className="inline-block mt-8 bg-gray-800 text-white text-lg font-bold py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300">
+          <Link href="/" className="inline-block mt-8 bg-gray-800 text-white text-lg font-bold py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300">
+     
               Volver a la lista
-            </a>
+     
           </Link>
         </div>
       </div>

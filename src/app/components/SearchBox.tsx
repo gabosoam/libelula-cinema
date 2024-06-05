@@ -4,7 +4,19 @@ import { searchMoviesFetch } from '@/lib/tmdb';
 import { MovieContext } from '../context/movieContext/MovieContext';
 import Link from 'next/link';
 
-const SearchResult = ({ movie }) => {
+interface Movie {
+  id: string;
+  poster_path: string,
+  title: string,
+  release_date: string,
+
+}
+
+interface SearchResultProps {
+  movie: Movie;
+}
+
+const SearchResult = ({ movie }: SearchResultProps) => {
   return (
     <Link href={`/movie/${movie.id}`} className="flex items-center p-2 border-b border-gray-700">
       <img
@@ -23,13 +35,13 @@ const SearchResult = ({ movie }) => {
 const SearchBox = () => {
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const searchBoxRef = useRef(null);
+  const searchBoxRef = useRef<any>(null);
 
 
-  const { fetchMovies } = useContext(MovieContext);
+  const { fetchMovies } = useContext<any>(MovieContext);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event:any) => {
       if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
         setSearchResults([]);
       }
@@ -42,18 +54,18 @@ const SearchBox = () => {
     };
   }, []);
 
-  const handleChange = async (event) => {
+  const handleChange = async (event:any) => {
     const text = event.target.value;
     setSearchText(text);
     try {
       const movies = await searchMoviesFetch(`/search/movie?query=${text}&page=${1}&include_adult=false`);
       setSearchResults(movies);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error al buscar películas:', error.message);
     }
   };
 
-  const handleKeyDown = async (event) => {
+  const handleKeyDown = async (event:any) => {
     if (event.key === 'Enter') {
       if(searchText.length>0){
         fetchMovies(`Resultados de la búsqueda para: ${searchText}`, `/search/movie?query=${searchText}&page=${1}&include_adult=false`)
@@ -77,7 +89,7 @@ const SearchBox = () => {
       />
       {searchResults.length > 0 && (
         <div className="absolute left-0 right-0 top-10 mt-1 bg-gray-800 shadow-md rounded-b-md">
-          {searchResults.map(movie => (
+          {searchResults.map((movie:any) => (
             <SearchResult key={movie.id} movie={movie} />
           ))}
         </div>

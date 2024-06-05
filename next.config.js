@@ -4,7 +4,6 @@ module.exports = {
     TMDB_TOKEN: process.env.TMDB_TOKEN,
   },
   experimental: {
-    // Utiliza el Context API para el estado global
     appDir: true,
   },
   images: {

@@ -4,7 +4,7 @@ import { MenuContext } from '../context/menuContext/MenuContext';
 
 const BurgerMenu = () => {
   
-  const { open, onOpen } = useContext(MenuContext);
+  const { open, onOpen }  = useContext<any>(MenuContext);
 
   const toggleMenu = () => {
     onOpen(!open);

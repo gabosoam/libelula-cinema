@@ -28,7 +28,7 @@ const MovieProvider = ({ children }: { children: React.ReactNode }) => {
     fetchMovies('Películas favoritas de la audiencia', '/movie/popular')
   }, []);
 
-  const fetchMovies = async (title, query) => {
+  const fetchMovies = async (title: string, query: string) => {
     setLoading(true);
 
     try {
@@ -38,7 +38,7 @@ const MovieProvider = ({ children }: { children: React.ReactNode }) => {
         setMovies(response);
         setLoading(false);
         setTitle(title)
-    } catch (err) {
+    } catch (err: any) {
         setError(err.message);
         setLoading(false);
     }
