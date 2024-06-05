@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { MovieContext } from "./MovieContext";
 import { getPopularMoviesFetch, searchMoviesFetch } from '@/lib/tmdb';
