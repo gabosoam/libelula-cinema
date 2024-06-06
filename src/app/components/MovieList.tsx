@@ -4,7 +4,7 @@ import { MovieContext } from "../context/movieContext/MovieContext";
 
 const MovieList = () => {
 
-    const { movies, loading, error, title } = useContext<any>(MovieContext);
+    const { movies, title } = useContext<any>(MovieContext);
 
 
     return (

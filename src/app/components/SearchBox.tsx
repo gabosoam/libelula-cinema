@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef, useContext } from 'react';
 import { SearchIcon } from '@heroicons/react/outline';
 import { searchMoviesFetch } from '@/lib/tmdb';
@@ -15,6 +16,7 @@ interface Movie {
 interface SearchResultProps {
   movie: Movie;
 }
+
 
 const SearchResult = ({ movie }: SearchResultProps) => {
   return (
@@ -39,6 +41,9 @@ const SearchBox = () => {
 
 
   const { fetchMovies } = useContext<any>(MovieContext);
+
+
+
 
   useEffect(() => {
     const handleClickOutside = (event:any) => {

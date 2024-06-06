@@ -2,7 +2,6 @@
 const TMDB_TOKEN = process.env.TMDB_TOKEN;
 
 export const getPopularMoviesFetch = async () => {
-  console.log('aleluya')
   const response = await fetch('https://api.themoviedb.org/3/movie/popular', {
     headers: {
       Authorization: `Bearer ${TMDB_TOKEN}`,
@@ -44,7 +43,7 @@ export const searchMoviesFetch = async (query: string, page = 1, resultsPerPage 
     });
   
     if (!response.ok) {
-      throw new Error('Failed to fetch movie details');
+     return null
     }
   
     const data = await response.json();

@@ -22,9 +22,6 @@ const MovieProvider = ({ children }: { children: React.ReactNode }) => {
   
 
   useEffect(() => {
-    console.log('aleluya2')
-    // Aquí puedes hacer la petición a la API para obtener las películas
-    // y actualizar los estados de movies, loading y error
     fetchMovies("Audience's favorite movie", '/movie/popular')
   }, []);
 
@@ -32,7 +29,6 @@ const MovieProvider = ({ children }: { children: React.ReactNode }) => {
     setLoading(true);
 
     try {
-        // Aquí deberías reemplazar con tu llamada a la API real
         const response = await searchMoviesFetch(query);
      
         setMovies(response);

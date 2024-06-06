@@ -7,10 +7,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Leer el estado de localStorage al iniciar la aplicación
-    const isLoggedState = localStorage.getItem('isLoggedState');
     const userState = localStorage.getItem('userState');
-    console.log('userState', userState)
     if (userState !== null) {
       setUser(JSON.parse(userState));
       setLogged(true)

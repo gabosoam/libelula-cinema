@@ -10,7 +10,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
     <div className="flex flex-col md:flex-row justify-between items-center bg-gray-900 shadow-md rounded-md overflow-hidden p-4 mb-4">
       <div className="w-full md:w-1/4 h-96 md:h-full flex justify-center items-center">
         <Image
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : '/images/notFound.jpg'}
           alt={movie.title}
           width={250}
           height={375}
@@ -44,9 +44,6 @@ const MovieCard = ({ movie }: MovieCardProps) => {
   );
 };
 
-const isMobile = () => {
-  const screenWidth = window.innerWidth;
-  return screenWidth < 640;
-};
+
 
 export default MovieCard;

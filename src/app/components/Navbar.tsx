@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const { open, onOpen } = useContext<any>(MenuContext);
 
-  const { onLogin, isLogged, user, onLogout } = useContext<any>(UserContext);
+  const {  isLogged, user, onLogout } = useContext<any>(UserContext);
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
@@ -25,9 +25,6 @@ const Navbar = () => {
     onOpen(!open);
   };
 
-  useEffect(() => {
-    console.log('user2222', user, isLogged)
-  }, [user])
 
 
 
@@ -97,7 +94,7 @@ const Navbar = () => {
                 onClick={handleLogout}
                 className="block px-4 py-2 text-left w-full"
               >
-                Cerrar sesión
+                Log out
 
               </button>
             </div>

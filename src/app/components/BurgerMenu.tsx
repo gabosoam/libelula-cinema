@@ -1,22 +1,19 @@
 "use client";
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { MenuContext } from '../context/menuContext/MenuContext';
 
 const BurgerMenu = () => {
   
   const { open, onOpen }  = useContext<any>(MenuContext);
 
-  const toggleMenu = () => {
-    onOpen(!open);
-  };
 
   return (
     <div className="">
 
       <div className={`${open ? 'block' : 'hidden'}`}>
-        {/* Aquí puedes agregar los elementos del menú */}
+   
         <div className="px-2 pt-2 space-y-1">
-          {/* Por ejemplo: */}
+     
           <a
             href="#"
             className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 hover:bg-gray-700"

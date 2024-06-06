@@ -22,6 +22,12 @@ const MovieDetail = ({ movie }: any) => {
     }
   };
 
+  const handleKeyDown = async (event:any) => {
+    if (event.key === 'Enter') {
+      handleCommentSubmit()
+    }
+  };
+
   useEffect(() => {
 
   
@@ -36,9 +42,9 @@ const MovieDetail = ({ movie }: any) => {
   return (
     <div className="bg-gray-900 text-white p-8">
       <div className="flex flex-col md:flex-row items-center md:items-start">
-        <div className="w-full md:w-1/3 mb-4 md:mb-0">
+        <div className="w-full md:w-1/3 mb-4 md:mb-0  items-center">
           <Image
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : '/images/notFound.jpg'}
             alt={movie.title}
             width={300}
             height={450}
@@ -66,14 +72,6 @@ const MovieDetail = ({ movie }: any) => {
               <span>{movie.vote_average.toFixed(1)} / 10 ({movie.vote_count} votes)</span>
             </div>
             <div>
-              <span className="font-bold">Country of origin: </span>
-              <span>{movie.production_countries[0].name}</span>
-            </div>
-            <div>
-              <span className="font-bold">Production Companies: </span>
-              <span>{movie.production_companies.map((company: any) => company.name).join(', ')}</span>
-            </div>
-            <div>
               <span className="font-bold">Revenue: </span>
               <span>${movie.revenue.toLocaleString()}</span>
             </div>
@@ -86,6 +84,7 @@ const MovieDetail = ({ movie }: any) => {
         <h2 className="text-2xl font-bold mb-4">Comments</h2>
         <div className="space-y-4">
           {comments.map((comment, index) => (
+            
             <div key={index} className="bg-gray-800 p-4 rounded-md">
               <p className="text-white">{comment.message}</p>
               <span className="text-sm text-gray-400">
@@ -101,6 +100,7 @@ const MovieDetail = ({ movie }: any) => {
               placeholder="Write your comment..."
               value={newComment}
               onChange={handleCommentChange}
+              onKeyDown={handleKeyDown}
               maxLength={50}
               className="w-full bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none"
             />
@@ -112,11 +112,13 @@ const MovieDetail = ({ movie }: any) => {
             </button>
           </div>
         ) : (
+ 
           <div className="mt-4">
             <p className="text-gray-400">
               You need to <Link href="/login" className="text-blue-500 hover:underline">log in</Link> or <Link href="/register" className="text-blue-500 hover:underline">register</Link> to leave a comment.
             </p>
           </div>
+
         )}
       </div>
     </div>

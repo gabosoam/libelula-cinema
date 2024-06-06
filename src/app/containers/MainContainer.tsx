@@ -14,7 +14,7 @@ const MainContainer: FC<Props> = ({
     children,
 }) => {
 
-    const { open, onOpen } = useContext<any>(MenuContext);
+    const { open } = useContext<any>(MenuContext);
 
 
 

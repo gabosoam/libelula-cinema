@@ -19,7 +19,6 @@ export const saveComment = async (movieId: string, user: string, message: string
         date: now.toISOString(),
       };
       await addDoc(collection(db, 'comments'), commentData);
-      console.log('Comentario guardado exitosamente en Firestore!');
     } catch (error) {
       console.error('Error al guardar el comentario en Firestore:', error);
     }
