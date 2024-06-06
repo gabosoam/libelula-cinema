@@ -22,7 +22,7 @@ const SearchResult = ({ movie }: SearchResultProps) => {
   return (
     <Link href={`/movie/${movie.id}`} className="flex items-center p-2 border-b border-gray-700">
       <img
-        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+        src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : '/images/notFound.jpg'}
         alt={movie.title}
         className="h-16 w-10 mr-4"
       />
@@ -46,7 +46,7 @@ const SearchBox = () => {
 
 
   useEffect(() => {
-    const handleClickOutside = (event:any) => {
+    const handleClickOutside = (event: any) => {
       if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
         setSearchResults([]);
       }
@@ -59,7 +59,7 @@ const SearchBox = () => {
     };
   }, []);
 
-  const handleChange = async (event:any) => {
+  const handleChange = async (event: any) => {
     const text = event.target.value;
     setSearchText(text);
     try {
@@ -70,15 +70,15 @@ const SearchBox = () => {
     }
   };
 
-  const handleKeyDown = async (event:any) => {
+  const handleKeyDown = async (event: any) => {
     if (event.key === 'Enter') {
-      if(searchText.length>0){
+      if (searchText.length > 0) {
         fetchMovies(`Search results for: ${searchText}`, `/search/movie?query=${searchText}&page=${1}&include_adult=false`)
-      }else{
+      } else {
         fetchMovies("Audience's favorite movies", '/movie/popular')
 
       }
-   
+
       setSearchResults([]);
     }
   };
@@ -95,7 +95,7 @@ const SearchBox = () => {
       />
       {searchResults.length > 0 && (
         <div className="absolute left-0 right-0 top-10 mt-1 bg-gray-800 shadow-md rounded-b-md">
-          {searchResults.map((movie:any) => (
+          {searchResults.map((movie: any) => (
             <SearchResult key={movie.id} movie={movie} />
           ))}
         </div>
