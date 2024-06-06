@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import MenuProvider from '@/app/context/menuContext/MenuProvider';
 import MovieProvider from '@/app/context/movieContext/MovieProvider';
 import MainContainer from '@/app/containers/MainContainer';
-import MovieList from '@/app/components/MovieList';
 import { getMovieDetails } from '@/lib/tmdb';
 import MovieDetail from '@/app/components/MovieDetail';
+import UserProvider from '@/app/context/userContext/UserProvider';
 
 
 interface MoviePageProps {
@@ -34,6 +34,7 @@ const MoviePage: React.FC<MoviePageProps> = ({ params }) => {
   return (
     <MenuProvider>
       <MovieProvider>
+      <UserProvider>
         <main>
           <MainContainer>
 
@@ -45,6 +46,7 @@ const MoviePage: React.FC<MoviePageProps> = ({ params }) => {
           </MainContainer>
 
         </main>
+        </UserProvider>
       </MovieProvider >
     </MenuProvider >
   );

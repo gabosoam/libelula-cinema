@@ -25,7 +25,7 @@ const MovieProvider = ({ children }: { children: React.ReactNode }) => {
     console.log('aleluya2')
     // Aquí puedes hacer la petición a la API para obtener las películas
     // y actualizar los estados de movies, loading y error
-    fetchMovies('Películas favoritas de la audiencia', '/movie/popular')
+    fetchMovies("Audience's favorite movie", '/movie/popular')
   }, []);
 
   const fetchMovies = async (title: string, query: string) => {

@@ -68,9 +68,10 @@ const SearchBox = () => {
   const handleKeyDown = async (event:any) => {
     if (event.key === 'Enter') {
       if(searchText.length>0){
-        fetchMovies(`Resultados de la búsqueda para: ${searchText}`, `/search/movie?query=${searchText}&page=${1}&include_adult=false`)
+        fetchMovies(`Search results for: ${searchText}`, `/search/movie?query=${searchText}&page=${1}&include_adult=false`)
       }else{
-        fetchMovies('Películas favoritas de la audiencia', '/movie/popular')
+        fetchMovies("Audience's favorite movies", '/movie/popular')
+
       }
    
       setSearchResults([]);
@@ -81,8 +82,8 @@ const SearchBox = () => {
     <div ref={searchBoxRef} className="relative flex flex-col">
       <input
         type="text"
-        placeholder="Buscar películas"
-        className="bg-gray-800 text-white rounded-md py-2 px-4 pl-10 focus:outline-none focus:bg-gray-700"
+        placeholder="Search for movies"
+        className="bg-gray-900 text-white rounded-md py-2 px-4 pl-10 focus:outline-none focus:bg-gray-700"
         value={searchText}
         onChange={handleChange}
         onKeyDown={handleKeyDown}

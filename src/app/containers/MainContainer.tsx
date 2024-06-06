@@ -3,19 +3,20 @@ import Navbar from "../components/Navbar";
 import BurgerMenu from "../components/BurgerMenu";
 import { FC, ReactNode, createContext, useContext, useState } from "react";
 import { MenuContext } from "../context/menuContext/MenuContext";
+import Footer from "../components/Footer";
 
 interface Props {
     children?: ReactNode;
 }
 
 
- const MainContainer: FC<Props> = ({
+const MainContainer: FC<Props> = ({
     children,
 }) => {
 
     const { open, onOpen } = useContext<any>(MenuContext);
 
-   
+
 
     return (
 
@@ -33,14 +34,18 @@ interface Props {
                 }
 
 
-                <div className={`col-span-${ open ? '9' : '12'}`}>
+                <div className={`${open ? 'lg:col-span-9' : 'lg:col-span-12'}   col-span-12`}>
                     {children}
                 </div>
+
+              
 
 
 
 
             </div>
+
+           <Footer/>
 
 
 

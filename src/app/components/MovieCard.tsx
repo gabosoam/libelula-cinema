@@ -24,19 +24,19 @@ const MovieCard = ({ movie }: MovieCardProps) => {
         </p>
         <ul className="list-none mb-4 space-y-2">
           <li className="flex justify-between items-center">
-            <span className="text-lg font-bold text-white">Fecha de lanzamiento:</span>
+            <span className="text-lg font-bold text-white">Release date:</span>
             <span className="text-lg text-gray-400">{movie.release_date}</span>
           </li>
           <li className="flex justify-between items-center">
-            <span className="text-lg font-bold text-white">Votación:</span>
+            <span className="text-lg font-bold text-white">Voting:</span>
             <span className="text-lg text-gray-400">
-              {movie.vote_average.toFixed(1)} / 10 ({movie.vote_count} votos)
+              {movie.vote_average.toFixed(1)} / 10 ({movie.vote_count} votes)
             </span>
           </li>
         </ul>
         <Link href={`/movie/${movie.id}`} legacyBehavior>
           <a className="inline-block bg-gray-800 text-white text-lg font-bold py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300">
-            Ver Detalles
+            View Details
           </a>
         </Link>
       </div>

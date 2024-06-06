@@ -1,9 +1,10 @@
-'use client'
+'use client'  
 import MainContainer from "./containers/MainContainer";
 
 import MovieList from "./components/MovieList";
 import MovieProvider from "./context/movieContext/MovieProvider";
 import MenuProvider from "./context/menuContext/MenuProvider";
+import UserProvider from "./context/userContext/UserProvider";
 
 const Home= () =>  {
 
@@ -12,6 +13,7 @@ const Home= () =>  {
   return (
     <MenuProvider>
       <MovieProvider>
+        <UserProvider>
         <main>
           <MainContainer>
 
@@ -22,6 +24,7 @@ const Home= () =>  {
           </MainContainer>
 
         </main>
+        </UserProvider>
       </MovieProvider >
     </MenuProvider >
   );
