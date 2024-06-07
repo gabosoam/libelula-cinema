@@ -32,20 +32,14 @@ const MainContainer: FC<Props> = ({
                         <BurgerMenu  ></BurgerMenu>
                     </div>
                 }
-
-
-                <div className={`${open ? 'lg:col-span-9' : 'lg:col-span-12'}   col-span-12`}>
+                <div className={`${open ? 'lg:col-span-9' : 'lg:col-span-12'} col-span-12 pb-8`}>
                     {children}
                 </div>
-
-              
-
-
 
 
             </div>
 
-           <Footer/>
+            <Footer />
 
 
 
