@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { MovieContext } from "./MovieContext";
-import { getPopularMoviesFetch, searchMoviesFetch } from '@/lib/tmdb';
+import { searchMoviesFetch } from '@/lib/tmdb';
 
 interface Movie {
   id: number;
@@ -22,7 +22,7 @@ const MovieProvider = ({ children }: { children: React.ReactNode }) => {
   
 
   useEffect(() => {
-    fetchMovies("Audience's favorite movie", '/movie/popular')
+    fetchMovies("Audience's favorite movies", '/movie/popular')
   }, []);
 
   const fetchMovies = async (title: string, query: string) => {
